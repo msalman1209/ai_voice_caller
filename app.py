@@ -519,5 +519,5 @@ if __name__ == '__main__':
         logger.info("Using gTTS and pyttsx3 for speech synthesis")
     
     # Run the Flask app
-    port = int(os.getenv('PORT', 5001))
+    port = int(os.getenv('PORT', 3002))
     app.run(host='0.0.0.0', port=port, debug=True)
