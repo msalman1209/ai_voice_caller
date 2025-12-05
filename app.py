@@ -348,6 +348,7 @@ def health_check():
 
 
 @app.route('/api/tts/synthesize', methods=['POST'])
+@app.route('/synthesize', methods=['POST'])  # Add backward compatibility route
 def synthesize_speech():
     """
     Synthesize speech from text using voice cloning
