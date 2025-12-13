@@ -27,7 +27,17 @@ except ImportError:
     logger.info("torch not available, using gTTS and pyttsx3 only")
 
 app = Flask(__name__)
-CORS(app)
+
+# Configure CORS with specific origin (prevents duplicate headers)
+CORS(app, resources={
+    r"/*": {
+        "origins": ["https://qmanagement-frontend.vercel.app", "http://localhost:3000"],
+        "methods": ["GET", "POST", "OPTIONS"],
+        "allow_headers": ["Content-Type", "Authorization"],
+        "expose_headers": ["Content-Type"],
+        "supports_credentials": False
+    }
+})
 
 # Configure logging
 logging.basicConfig(level=logging.INFO)
